@@ -15,8 +15,46 @@
 */
 
 function r2d2Speaks(code) {
-    // Your code here
+    if (code.length === 0) return;
+    let totalTime = 0;
+    let firstEl = code.shift();
+    if (firstEl === 0) {
+        console.log('beep');
+        totalTime += 400;
+        // console.log(totalTime);
+        setTimeout(() => r2d2Speaks(code, totalTime), 400);
+    } else if (firstEl === 1) {
+        console.log('boop');
+        totalTime += 800;
+        // console.log(totalTime);
+        setTimeout(() => r2d2Speaks(code, totalTime), 800);
+    }
 }
+
+    // if (!code.length) return;
+    // let first = code[0];
+    // r2d2Speaks(code.slice(1))
+    // if (first === 0) {
+    //     setTimeout(function () {
+    //         r2d2Speaks = () {
+    //             console.log('beep');
+    //         }
+    //     }, 400)
+    // } else if (first === 1) {
+    //     console.log('boop')
+    //     setTimeout(r2d2Speaks, 800)
+    // }
+
+    // for (let el of code) {
+    //     if (el === 0) {
+    //         console.log('beep')
+    //     } else if (el === 1) {
+    //         console.log('boop')
+    //     }
+    // }
+    // setTimeout(r2d2Speaks, 400)   
+
+
 
 let code = [0, 1, 1, 0];
 r2d2Speaks(code);

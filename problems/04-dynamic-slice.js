@@ -18,11 +18,40 @@
 		const slicer3 = dynamicSlice(-10, 2);
     console.log(slicer3([99, 40, 131, 8])); // prints [ 99, 40 ]
 */
-
-function dynamicSlice(start, end) {
-    // Your code here
+// 1. accept 2 number
+// 2. return another func
+// 3. returned func accept an array
+// 4. when invoked, return a copy of a portion of arr betwen indices incl start, excl end.
+// 5. if start < 0, return func slice from beginning of arr
+function dynamicSlice(start, end, res = []) {
+  debugger
+  return function (array) {
+    // let end = 0;
+    // let count = 0;
+    if (end > array.length) {
+      end = array.length;
+      let count = end - start;
+      return array.splice(start, count)
+    } else if (start < 0) {
+      start = 0;
+      let count = end - start;
+      return array.splice(start, count)
+    } else {
+    let count = end - start;
+    return array.splice(start, count)
+    }
+  }
 }
 
+// const slicer = dynamicSlice(1, 3);
+// console.log(slicer([0, 1, 2, 3])); // prints [ 1, 2 ]
+
+// const slicer2 = dynamicSlice(2, 7);
+// console.log(slicer2(['kittens', 'puppies', 'cats', 'dogs'])); // prints [ 'cats', 'dogs' ]
+
+// const slicer3 = dynamicSlice(-10, 2);
+// console.log(slicer3([99, 40, 131, 8])); // prints [ 99, 40 ]
+    
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = dynamicSlice;
